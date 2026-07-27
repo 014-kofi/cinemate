@@ -1,0 +1,40 @@
+/* 
+  Tailwind Base:
+  Adds Tailwind's default styles and CSS reset.
+  It removes browser inconsistencies and provides a clean starting point.
+*/
+@tailwind base;
+
+
+/*
+  Tailwind Components:
+  Adds reusable component classes.
+  You can create your own components here using @layer components.
+  
+  Example:
+  .btn {
+    @apply px-4 py-2 bg-blue-500 text-white rounded;
+  }
+*/
+@tailwind components;
+
+
+/*
+  Tailwind Utilities:
+  Adds all Tailwind utility classes.
+  
+  Examples:
+  flex          -> display: flex
+  text-center   -> center text
+  bg-red-500    -> red background
+  p-4           -> padding
+  m-4           -> margin
+*/
+@tailwind utilities;
+
+main {
+  max-width: 1280px;
+  margin: auto;
+  min-height: 90vh;
+  padding: 80px;
+}
