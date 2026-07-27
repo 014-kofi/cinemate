@@ -1,23 +1,52 @@
-import { Link } from "react-router-dom";
-import { Card } from '../components/Card';
+import { Card } from "../components/Card";
 import { useFetch } from "../hooks/useFetch";
 import { useEffect } from "react";
-useEffect
+
 export const MoviesList = ({ apiPath, title }) => {
 
-    const { data } = useFetch(apiPath);
+    const { data, loading } = useFetch(apiPath);
+
     useEffect(() => {
         document.title = `${title} / Cinemate`;
-    })
-    return (
-        <div >
-            <section className="max-w-1xl   mx-auto">
-                <div className="flex justify-start flex-wrap other:justify-evenly lg:justify-evenly">
-                    {data.map((movie) => (
-                        <Card key={movie.id} movie={movie} />
-                    ))}
+    }, [title]);
+
+
+    if (loading) {
+        return (
+            <section className="flex min-h-[400px] items-center justify-center">
+                <div className="text-xl font-semibold text-gray-700 dark:text-white">
+                    Loading movies...
                 </div>
             </section>
-        </div>
+        );
+    }
+
+
+    return (
+        <section className="mx-auto max-w-7xl px-4">
+
+            <h1 className="mb-6 text-3xl font-bold text-gray-900 dark:text-white">
+                {title}
+            </h1>
+
+
+            <div className="
+                flex
+                flex-wrap
+                justify-center
+                gap-5
+                lg:justify-evenly
+            ">
+
+                {data?.map((movie) => (
+                    <Card
+                        key={movie.id}
+                        movie={movie}
+                    />
+                ))}
+
+            </div>
+
+        </section>
     );
 };
