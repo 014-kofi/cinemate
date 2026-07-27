@@ -1,5 +1,5 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import logo from "../assets/cinema.png";
+import logo from "../../public/logo.jpg";
 import { useEffect, useState, } from "react";
 
 export const Header = () => {
